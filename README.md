@@ -8,6 +8,9 @@ Vyra Fania Adelina
 2. Letakkan benda tersebut di atas permukaan datar: meja, lantai, dsb.
 3. Ambil foto benda tersebut dari empat sudut pandang yang berbeda: kanan atas, kiri atas, belakang atas, depan atas (sudut kemiringan bebas).
 
+## Benda
+Pada tugas ini saya memilih botol parfum
+
 ### Depan Atas
 ![img](img/depan.jpg)
 
