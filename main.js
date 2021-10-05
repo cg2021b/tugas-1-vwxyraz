@@ -719,7 +719,7 @@ function main() {
     // var change = [0, 0];
 
     var dy = 0;
-    var speed = 0.01;
+    var speed = 0.109;
     function render() {
         if(dy >= 0.55 || dy <= -0.55)
             speed = -speed;
