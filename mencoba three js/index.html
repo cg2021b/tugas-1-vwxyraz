@@ -1,1 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="three.min.js"></script>
+</head>
+<body>
+    
+</body>
+</html>
 
+
+<script>    
+    let scene, camera, renderer, 
+        cube, sphere, cylinder, cone, dode, torus, octa, knot, tube, ring,
+        pindah=1, pindah2=1;
+
+    
+    let createCube = function() {
+        let geometry = new THREE.BoxGeometry(0.5, 1, 0.5);
+        let material = new THREE.MeshBasicMaterial({color : 0x448800});
+        cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+    }
+
+    
+    let createSphere = function() {
+        let geometry = new THREE.SphereGeometry(0.5, 10, 10);
+        let material = new THREE.MeshBasicMaterial({color : 0xFFaa00, wireframe:true});
+        sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+    }
+
+    
+    let createCylinder = function() {
+        let geometry = new THREE.CylinderGeometry(0.5, 0.5, 0.5, 10);
+        let material = new THREE.MeshBasicMaterial({color : 0xFFaa00, wireframe: true});
+        cylinder = new THREE.Mesh(geometry, material);
+        scene.add(cylinder);
+    }
+
+    let createCone = function() {
+        let geometry = new THREE.ConeGeometry(0.5, 1, 16);
+        let material = new THREE.MeshBasicMaterial({color : 0x448800});
+        cone = new THREE.Mesh(geometry, material);
+        scene.add(cone);
+    }
+
+    let createDode = function() {
+        let geometry = new THREE.DodecahedronGeometry(0.5, 1);
+        let material = new THREE.MeshPhongMaterial({ color: 0x00a1cb, shininess: 100 });
+        dode = new THREE.Mesh(geometry, material);
+        scene.add(dode);
+    }
+
+    let createTorus = function() {
+        let geometry = new THREE.TorusGeometry(0.5, 0.15, 8, 16);
+        let material = new THREE.MeshPhongMaterial({ color: 0x00a1cb, shininess: 100 });
+        torus = new THREE.Mesh(geometry, material);
+        scene.add(torus);
+    }
+
+    let createOcta = function() {
+        let geometry = new THREE.OctahedronGeometry(0.5);
+        let material = new THREE.MeshPhongMaterial({ color: 0x00a1cb, shininess: 100 });
+        octa = new THREE.Mesh(geometry, material);
+        scene.add(octa);
+    }
+
+    let createTorusKnot = function() {
+        let geometry = new THREE.TorusKnotGeometry(0.5, 0.15, 64, 12, 3, 2)
+        let material = new THREE.MeshBasicMaterial({color : 0x448800});
+        knot = new THREE.Mesh(geometry, material);
+        scene.add(knot);
+    }
+
+    let createRing = function(){
+        let geometry = new THREE.RingGeometry( 0.3, 0.7, 32 );
+        let material = new THREE.MeshBasicMaterial( { color: 0xFFaa00, side: THREE.DoubleSide, wireframe:true} );
+        ring = new THREE.Mesh( geometry, material );
+        scene.add( ring );
+    }
+        
+        // set up the environment - 
+        // initiallize scene, camera, objects and renderer
+        let init = function() {
+            // 1. create the scene
+            scene = new THREE.Scene();
+            scene.background  = new THREE.Color(0x151515);
+
+            const color = 0xffffff;
+            const alight = new THREE.AmbientLight(color);
+            alight.position.set(0, -4, 0);
+            scene.add(alight);
+            
+            const intensity = 1;
+            const dlight = new THREE.DirectionalLight(0xFFFFFF, intensity);
+            dlight.position.set(0, 0, 2);
+            scene.add(dlight);
+            
+            // 2. create an locate the camera       
+            camera = new THREE.PerspectiveCamera(72, window.innerWidth / window.innerHeight, 1, 1000);
+            camera.position.z = 5;
+            
+            // 3. create an locate the object on the scene           
+            createCube();
+            createSphere();
+            createCylinder();
+            createCone();
+            createDode();
+            createTorus();
+            createOcta();
+            createTorusKnot();
+            createRing();
+            
+            // 4. create the renderer     
+            renderer = new THREE.WebGLRenderer();   
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            
+            document.body.appendChild(renderer.domElement);
+          
+        };
+      
+        
+        // main animation loop - calls 50-60 in a second.
+        let mainLoop = function() {
+            cube.rotation.x += 0.02;
+            cube.rotation.y += 0.02;
+            cube.position.set(2, 0, 0);
+            // if(cube.position.x > cube.position.x+1) pindah = -0.01;
+            // if(cube.position.x < cube.position.x-1) pindah = 0.01;
+
+            sphere.rotation.x += 0.02;
+            sphere.rotation.y += 0.02;
+            // sphere.position.y += pindah2;
+            sphere.position.set(0, 2, 0);
+            // if(sphere.position.y > 3) pindah2 = -0.01;
+            // if(sphere.position.y < -3) pindah2 = 0.01;
+
+            cylinder.rotation.x += 0.02;
+            cylinder.rotation.y += 0.02;
+            cylinder.position.set(-2, 2, 0);
+            // if(cylinder.position.y > 3) pindah2 = -0.01;
+            // if(cylinder.position.y < -3) pindah2 = 0.01;
+
+            cone.rotation.x += 0.02;
+            cone.rotation.y += 0.02;
+
+            dode.rotation.x += 0.02;
+            dode.rotation.y += 0.02;
+            dode.position.set(-2, -2, 0);
+
+            torus.rotation.x += 0.02;
+            torus.rotation.y += 0.02;
+            torus.position.set(2, -2, 0);
+
+            octa.rotation.x += 0.02;
+            octa.rotation.y += 0.02;
+            octa.position.set(0, -2, 0);
+
+            knot.rotation.x += 0.02;
+            knot.rotation.y += 0.02;
+            knot.position.set(-2, 0, 0);
+
+            ring.rotation.x += 0.02;
+            ring.rotation.y += 0.02;
+            ring.position.set(2, 2, 0);
+
+            renderer.render(scene, camera);
+            requestAnimationFrame(mainLoop);
+        };
+        
+        ///////////////////////////////////////////////
+        init();
+        mainLoop();
+    </script>
+    
