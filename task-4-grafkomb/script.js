@@ -163,14 +163,14 @@ scene.fog = new THREE.FogExp2('0xffffff', 0.1);
  const refMat = new THREE.MeshBasicMaterial({
      envMap: sphereCamera.renderTarget.texture,
  });
- const refGeo = new THREE.SphereGeometry(.3, 48 , 24);
+ const refGeo = new THREE.SphereGeometry(.1, 48 , 24);
  
  
- const geometryBox = new THREE.BoxGeometry(9, 0.2, 9);
+ const geometryBox = new THREE.BoxGeometry(4, 0.2, 4);
  const materialBox = new THREE.MeshPhysicalMaterial( {wireframe: false} );
  materialBox.color = new THREE.Color(0xffffff);
  const cube = new THREE.Mesh(geometryBox, materialBox);
- cube.position.y = 0.0;
+ cube.position.y = -0.15;
  scene.add(cube);
  
  disco.castShadow = true;
