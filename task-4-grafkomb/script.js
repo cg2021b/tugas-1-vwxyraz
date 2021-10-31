@@ -78,7 +78,7 @@ scene.fog = new THREE.FogExp2('0xffffff', 0.1);
  // Base camera
  const camera = new THREE.PerspectiveCamera(85, sizes.width / sizes.height, 0.1, 100);
  camera.position.x = 0;
- camera.position.y = 3;
+ camera.position.y = 5;
  camera.position.z = 5;
  scene.add(camera);
  
@@ -157,7 +157,7 @@ scene.fog = new THREE.FogExp2('0xffffff', 0.1);
  const materialDisco = new THREE.MeshPhysicalMaterial( {wireframe: false, map: loaderTexture.load('./texture/panorama.jpg')} );
  materialDisco.color = new THREE.Color(0xffffff);
  const disco = new THREE.Mesh(geometrySphere, materialDisco);
- disco.position.y = 2.5;
+ disco.position.y = 1;
  scene.add(disco);
  
  const refMat = new THREE.MeshBasicMaterial({
