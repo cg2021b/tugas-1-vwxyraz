@@ -153,11 +153,11 @@ scene.fog = new THREE.FogExp2('0xffffff', 0.1);
  })
  
  
- const geometrySphere = new THREE.SphereGeometry(.3, 48 , 24);
+ const geometrySphere = new THREE.SphereGeometry(.1, 48 , 24);
  const materialDisco = new THREE.MeshPhysicalMaterial( {wireframe: false, map: loaderTexture.load('./texture/panorama.jpg')} );
  materialDisco.color = new THREE.Color(0xffffff);
  const disco = new THREE.Mesh(geometrySphere, materialDisco);
- disco.position.y = 5;
+ disco.position.y = 1;
  scene.add(disco);
  
  const refMat = new THREE.MeshBasicMaterial({
@@ -170,7 +170,7 @@ scene.fog = new THREE.FogExp2('0xffffff', 0.1);
  const materialBox = new THREE.MeshPhysicalMaterial( {wireframe: false} );
  materialBox.color = new THREE.Color(0xffffff);
  const cube = new THREE.Mesh(geometryBox, materialBox);
- cube.position.y = -0.15;
+ cube.position.y = -0.2;
  scene.add(cube);
  
  disco.castShadow = true;
