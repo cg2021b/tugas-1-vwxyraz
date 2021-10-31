@@ -78,8 +78,8 @@ scene.fog = new THREE.FogExp2('0xffffff', 0.1);
  // Base camera
  const camera = new THREE.PerspectiveCamera(85, sizes.width / sizes.height, 0.1, 100);
  camera.position.x = 0;
- camera.position.y = 5;
- camera.position.z = 5;
+ camera.position.y = 6;
+ camera.position.z = 7;
  scene.add(camera);
  
  const cubeRenderTarget = new THREE.WebGLCubeRenderTarget( 128, { format: THREE.RGBFormat, generateMipmaps: true, minFilter: THREE.LinearMipmapLinearFilter } );
@@ -157,7 +157,7 @@ scene.fog = new THREE.FogExp2('0xffffff', 0.1);
  const materialDisco = new THREE.MeshPhysicalMaterial( {wireframe: false, map: loaderTexture.load('./texture/panorama.jpg')} );
  materialDisco.color = new THREE.Color(0xffffff);
  const disco = new THREE.Mesh(geometrySphere, materialDisco);
- disco.position.y = 1;
+ disco.position.y = 0.5;
  scene.add(disco);
  
  const refMat = new THREE.MeshBasicMaterial({
