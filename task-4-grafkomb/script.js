@@ -170,7 +170,7 @@ scene.fog = new THREE.FogExp2('0xffffff', 0.1);
  const materialBox = new THREE.MeshPhysicalMaterial( {wireframe: false} );
  materialBox.color = new THREE.Color(0xffffff);
  const cube = new THREE.Mesh(geometryBox, materialBox);
- cube.position.y = 0.9;
+//  cube.position.y = 0.9;
  scene.add(cube);
  
  disco.castShadow = true;
